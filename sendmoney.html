@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Dinero</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
+</head>
+
+<body>
+    <!--------------------BARRA O MENU DE NAVEGACION--------------------------------->
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark mb-5">
+            <div class="container">
+                <a class="navbar-brand fw-bold">
+                    <i class="fa-solid fa-wallet me-2"></i>Mi Wallet
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-2">
+
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light ms-lg-3" href="/">
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--------------------ENVIAR O TRANSFERIR DINERO--------------------------------->
+    <main class="container d-flex justify-content-center">
+        <section class="row w-100 justify-content-center">
+            <div class="col-12 col-md-6 text-center">
+
+                <!-- TÍTULO -->
+                <h1 class="mt-5 mb-4 fw-bold">
+                    Enviar Dinero
+                </h1>
+                <div id="alert-container"></div>
+
+                <!-- Buscador -->
+                <div class="mb-3">
+                    <input type="text" id="search" class="form-control" placeholder="Buscar por nombre o alias"
+                        list="contactos-autocomplete">
+                    <datalist id="contactos-autocomplete"></datalist>
+                </div>
+
+                <!-- Botón nuevo contacto -->
+                <button class="btn btn-primary mb-3 mt-5" id="btn-nuevo-contacto">
+                    Agregar nuevo contacto
+                </button>
+
+                <!-- Formulario nuevo contacto -->
+                <div id="form-contacto" class="card p-3 mb-4 d-none">
+                    <input class="form-control mb-2" id="nombre" placeholder="Nombre">
+                    <input class="form-control mb-2" id="cbu" placeholder="CBU">
+                    <input class="form-control mb-2" id="alias" placeholder="Alias">
+                    <input class="form-control mb-2" id="banco" placeholder="Banco">
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success" id="guardar-contacto">Guardar</button>
+                        <button class="btn btn-secondary" id="cancelar-contacto">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Lista contactos -->
+                <ul class="list-group mb-3" id="lista-contactos"></ul>
+
+                <!-- Enviar dinero -->
+                <button class="btn btn-primary d-none" id="enviar-dinero">
+                    Enviar dinero
+                </button>
+
+                <a href="menu.html" class="btn btn-secondary mt-3">Volver</a>
+
+            </div>
+        </section>
+
+        <!-- Modal Enviar Dinero -->
+        <section class="modal fade " id="modalEnviarDinero" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Enviar dinero</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Monto a enviar</label>
+                            <input type="number" class="form-control" id="montoEnviar" min="1"
+                                placeholder="Ingrese monto">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary" id="confirmar-envio">
+                            Confirmar envío
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--------------------SCRIPTS--------------------------------->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/sendMoney.js"></script>
+
+</body>
+
+</html>
